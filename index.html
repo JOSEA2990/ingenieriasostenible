@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Calculadora de Sistema Solar Fotovoltaico</h1>
+
+<section>
+  <h2>1. Selección de Equipos</h2>
+  <label for="equipoSelect">Equipo eléctrico:</label>
+  <select id="equipoSelect">
+    <option value="" disabled selected>-- Selecciona un equipo --</option>
+    <option value="9|Bombillo LED 9W">Bombillo LED (9W)</option>
+    <option value="50|Ventilador 50W">Ventilador (50W)</option>
+    <option value="150|Refrigeradora 150W">Refrigeradora (150W)</option>
+    <option value="80|Televisor LED 80W">Televisor LED (80W)</option>
+    <option value="10|Cargador celular 10W">Cargador celular (10W)</option>
+    <option value="60|Laptop 60W">Laptop (60W)</option>
+    <option value="1000|Microondas 1000W">Microondas (1000W)</option>
+    <option value="500|Bomba de agua 500W">Bomba de agua (500W)</option>
+    <option value="200|Lavadora 200W">Lavadora (200W)</option>
+  </select>
+
+  <label for="cantidadInput">Cantidad:</label>
+  <input type="number" id="cantidadInput" value="1" min="1" />
+
+  <label for="horasInput">Horas uso diario:</label>
+  <input type="number" id="horasInput" value="1" min="0.1" step="0.1" />
+
+  <button id="addEquipoBtn">Agregar a lista</button>
+
+  <table id="listaEquipos" style="display:none;">
+    <thead>
+      <tr>
+        <th>Equipo</th><th>Potencia (W)</th><th>Cantidad</th><th>Horas/día</th><th>Consumo diario (Wh)</th><th>Quitar</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</section>
+
+<section style="margin-top:30px;">
+  <h2>2. Configuración del sistema</h2>
+  <label for="bateriaTipo">Tipo de batería:</label>
+  <select id="bateriaTipo">
+    <option value="AGM">AGM 12V 200Ah (1.2 kWh útil)</option>
+    <option value="Gel">Gel 12V 200Ah (1.2 kWh útil)</option>
+    <option value="Litio">Litio 12V 150Ah (1.35 kWh útil)</option>
+  </select>
+
+  <label for="bateriaCantidad">Cantidad de baterías:</label>
+  <input type="number" id="bateriaCantidad" value="1" min="1" />
+
+  <label for="autonomiaInput">Días de autonomía:</label>
+  <input type="number" id="autonomiaInput" value="1.5" min="0.5" step="0.1" />
+
+  <label for="voltajeSistema">Voltaje sistema:</label>
+  <select id="voltajeSistema">
+    <option value="12">12 V</option>
+    <option value="24">24 V</option>
+  </select>
+
+  <button id="calcularBtn">Calcular sistema</button>
+</section>
+
+<section id="resultado" class="result" style="display:none;">
+  <h2>3. Resultados del cálculo</h2>
+  <div id="resumenConsumo"></div>
+  <div id="resumenBaterias"></div>
+  <div id="resumenPaneles"></div>
+  <div id="resumenInversor"></div>
+  <div id="resumenCostos"></div>
+  <div id="esquemaSimple" style="margin-top:20px;"></div>
+</section>
+
+<script src="javas.js"></script>
+</body>
+</html>
