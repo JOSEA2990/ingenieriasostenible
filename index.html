@@ -5,77 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-    <h1>Calculadora de Sistema Solar Fotovoltaico</h1>
+  <h2>Calculadora Solar para Hogares</h2>
 
-<section>
-  <h2>1. Selección de Equipos</h2>
-  <label for="equipoSelect">Equipo eléctrico:</label>
-  <select id="equipoSelect">
-    <option value="" disabled selected>-- Selecciona un equipo --</option>
-    <option value="9|Bombillo LED 9W">Bombillo LED (9W)</option>
-    <option value="50|Ventilador 50W">Ventilador (50W)</option>
-    <option value="150|Refrigeradora 150W">Refrigeradora (150W)</option>
-    <option value="80|Televisor LED 80W">Televisor LED (80W)</option>
-    <option value="10|Cargador celular 10W">Cargador celular (10W)</option>
-    <option value="60|Laptop 60W">Laptop (60W)</option>
-    <option value="1000|Microondas 1000W">Microondas (1000W)</option>
-    <option value="500|Bomba de agua 500W">Bomba de agua (500W)</option>
-    <option value="200|Lavadora 200W">Lavadora (200W)</option>
-  </select>
+  <div class="seccion">
+    <label for="equipo">Equipo:</label>
+    <select id="equipo">
+      <option>Bombillo LED 9W</option>
+      <option>Ventilador 50W</option>
+      <option>Refrigeradora 150W</option>
+      <option>Televisor 100W</option>
+      <option>Laptop 60W</option>
+      <option>Microondas 800W</option>
+      <option>Bomba de agua 400W</option>
+    </select>
 
-  <label for="cantidadInput">Cantidad:</label>
-  <input type="number" id="cantidadInput" value="1" min="1" />
+    <label for="horas">Horas/día:</label>
+    <input type="number" id="horas" min="0" step="0.1" required>
 
-  <label for="horasInput">Horas uso diario:</label>
-  <input type="number" id="horasInput" value="1" min="0.1" step="0.1" />
+    <label for="cantidad">Cantidad:</label>
+    <input type="number" id="cantidad" min="1" required>
 
-  <button id="addEquipoBtn">Agregar a lista</button>
+    <button onclick="agregarEquipo()">Agregar equipo</button>
+  </div>
 
-  <table id="listaEquipos" style="display:none;">
-    <thead>
-      <tr>
-        <th>Equipo</th><th>Potencia (W)</th><th>Cantidad</th><th>Horas/día</th><th>Consumo diario (Wh)</th><th>Quitar</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</section>
+  <div class="seccion">
+    <h3>Equipos Seleccionados</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Equipo</th>
+          <th>Potencia</th>
+          <th>Horas</th>
+          <th>Cantidad</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody id="tablaEquipos"></tbody>
+    </table>
+  </div>
 
-<section style="margin-top:30px;">
-  <h2>2. Configuración del sistema</h2>
-  <label for="bateriaTipo">Tipo de batería:</label>
-  <select id="bateriaTipo">
-    <option value="AGM">AGM 12V 200Ah (1.2 kWh útil)</option>
-    <option value="Gel">Gel 12V 200Ah (1.2 kWh útil)</option>
-    <option value="Litio">Litio 12V 150Ah (1.35 kWh útil)</option>
-  </select>
+  <div class="seccion">
+    <label for="autonomia">Días de autonomía:</label>
+    <input type="number" id="autonomia" min="1" value="1" required>
+    <button onclick="calcularConsumo()">Calcular sistema solar</button>
+  </div>
 
-  <label for="bateriaCantidad">Cantidad de baterías:</label>
-  <input type="number" id="bateriaCantidad" value="1" min="1" />
-
-  <label for="autonomiaInput">Días de autonomía:</label>
-  <input type="number" id="autonomiaInput" value="1.5" min="0.5" step="0.1" />
-
-  <label for="voltajeSistema">Voltaje sistema:</label>
-  <select id="voltajeSistema">
-    <option value="12">12 V</option>
-    <option value="24">24 V</option>
-  </select>
-
-  <button id="calcularBtn">Calcular sistema</button>
-</section>
-
-<section id="resultado" class="result" style="display:none;">
-  <h2>3. Resultados del cálculo</h2>
-  <div id="resumenConsumo"></div>
-  <div id="resumenBaterias"></div>
-  <div id="resumenPaneles"></div>
-  <div id="resumenInversor"></div>
-  <div id="resumenCostos"></div>
-  <div id="esquemaSimple" style="margin-top:20px;"></div>
-</section>
+  <div class="seccion" id="resultado"></div>
 
 <script src="javas.js"></script>
 </body>
