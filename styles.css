@@ -17,13 +17,12 @@
       margin-top: 10px;
     }
     input, select {
-      padding: 6px;
+      padding: 5px;
       margin-right: 10px;
     }
     .seccion {
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
-
           /* mueve la línea completamente a la derecha */
     footer {
       text-align: center;
@@ -31,7 +30,6 @@
       background-color: #008080;
       color: white;
     }
-
     footer a {
       color: #fff;
       margin: 0 10px;

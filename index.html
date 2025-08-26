@@ -12,7 +12,7 @@
   <h2>Calculadora Solar para Hogares</h2>
 
   <div class="seccion">
-    <label for="equipo">Equipo:</label>
+    <label for="equipo">Equipo:----</label>
     <select id="equipo">
       <option>Bombillo LED 9W</option>
       <option>Ventilador 50W</option>
@@ -22,15 +22,22 @@
       <option>Microondas 800W</option>
       <option>Bomba de agua 400W</option>
     </select>
+  </div>
 
+  <div class="seccion">
     <label for="horas">Horas/día:</label>
     <input type="number" id="horas" min="0" step="0.1" required>
+  </div>
 
-    <label for="cantidad">Cantidad:</label>
+  <div class="seccion">
+    <label for="cantidad">Cantidad-:</label>
     <input type="number" id="cantidad" min="1" required>
+  </div>
 
+  <div class="seccion">
     <button onclick="agregarEquipo()">Agregar equipo</button>
   </div>
+
 
   <div class="seccion">
     <h3>Equipos Seleccionados</h3>
