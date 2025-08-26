@@ -23,3 +23,18 @@
     .seccion {
       margin-bottom: 30px;
     }
+
+          /* mueve la línea completamente a la derecha */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #008080;
+      color: white;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
